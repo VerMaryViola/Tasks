@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game assignment</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #aca6a6;
+    }
+    .cup {
+        width: 8%;
+        height: 40px;
+        margin: 10px;
+        background-color: #df7c0b;
+
+    .cup:hover {
+        background-color: #b96a0a;
+        transform: scale(1.7);
+        transition: transform 0.2s;
+    }
+</style>
+
+<body >
+    <div style="margin-top: 5%;">
+    <h1>🥤 MYSTERY CUPS</h1>
+    <!--This is a simple game where the player has to guess which cup contains the first letter of their name.-->
+     </div>
+
+    <div style="margin-top: 10%;">
+    <input type="text" id="name" placeholder="Enter your name" style="width: 40%; border: 2px solid #ccc; padding: 10px; ">
+    <button onclick="startGame()" style="width: 10%; height: 40px; margin: 5px; background-color: #359938; hover: #2a7d2d; transform: scale(1.1S);">Start Game</button>
+
+    <h3 id="question"></h3>
+
+    <button onclick="guess(0)" class="cup">Cup 1</button>
+    <button onclick="guess(1)" class="cup ">Cup 2</button>
+    <button onclick="guess(2)" class="cup">Cup 3</button>
+
+    <h2 id="result"></h2>
+
+    </div>
+    <script>
+
+        let letters;
+        let correctCup;
+
+        function startGame() {
+
+            let name = document.getElementById("name").value.trim();
+
+            if (name.length < 3) {
+                alert("Enter a name with at least 3 letters!");
+                return;
+            }
+            <!--To extract the first three letters of given name-->
+            letters = name.substring(0, 3).toUpperCase().split("");
+
+             <!--Randomly rearrange the letters-->
+            letters.sort(() => Math.random() - 0.5);
+            
+            <!--Finds position of first letter-->
+            correctCup = letters.indexOf(name[0].toUpperCase());
+
+            document.getElementById("question").innerHTML =
+                "Which cup contains the letter " + name[0].toUpperCase() + "?";
+
+            document.getElementById("result").innerHTML = "";
+        }
+
+        function guess(choice) {
+
+            if (!letters) {
+                alert("Please start the game first!");
+                return;
+            }
+
+            if (choice === correctCup) {
+                document.getElementById("result").innerHTML =
+                    "🎉 Congratulations! You guessed correctly!";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "❌ Wrong! You have failed. Try again!";
+            }
+
+            letters = null;
+        }
+
+    </script>
+
+</body>
+</html>
