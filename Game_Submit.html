@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game assignment</title>
+    
 </head>
 <style>
     body {
@@ -25,11 +26,39 @@
 </style>
 
 <body >
-    <div style="margin-top: 5%;">
-    <h1>🥤 MYSTERY CUPS</h1>
+    <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Class work</h2>
+    <script>
+        function convert() {
+            let grams = document.getElementById("grams").value;
+            let kilograms = grams / 1000;
+            document.getElementById("result").innerHTML =
+                grams + " grams = " + kilograms + " kilograms";
+        }
+    </script>
+
+
+    <h2 daquee="5">Grams to Kilograms Converter</h2>
+
+    <label>Enter weight in grams:</label>
+
+    <input type="number" id="grams">
+
+    <button onclick="convert()">Convert</button>
+
+    <h3 id="result"></h3>
+    <hr>
+
+
+
+    
     <!--This is a simple game where the player has to guess which cup contains the first letter of their name.-->
      </div>
+    <p>
+    <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Home work </h2>
+    <div style="margin-top: 5%;">
 
+    <h1>🥤 MYSTERY CUPS</h1>
+    <p>
     <div style="margin-top: 10%;">
     <input type="text" id="name" placeholder="Enter your name" style="width: 40%; border: 2px solid #ccc; padding: 10px; ">
     <button onclick="startGame()" style="width: 10%; height: 40px; margin: 5px; background-color: #359938; hover: #2a7d2d; transform: scale(1.1S);">Start Game</button>
